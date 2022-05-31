@@ -31,4 +31,5 @@ SET species = 'pokemon'
 WHERE species is NULL; 
 COMMIT;
 
-
+BEGIN;
+DELETE FROM animals WHERE date_of_birth > '2022-01-01';
