@@ -1,6 +1,6 @@
-# project-name
+# Vet Clinic
 
-> Add description here.
+> This is my first SQL project for a vet clinic.
 
 
 ## Getting Started
