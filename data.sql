@@ -16,3 +16,8 @@ VALUES
 (E'Boarmon',E'2005-06-07',7,TRUE,20.4),
 (E'Blossom',E'1998-10-13',3,TRUE,17),
 (E'Ditto',E'2022-05-14',4,TRUE,22);
+
+BEGIN;
+UPDATE "public"."animals"
+SET species = 'unspecified';
+ROLLBACK;
