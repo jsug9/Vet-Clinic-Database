@@ -21,3 +21,12 @@ BEGIN;
 UPDATE "public"."animals"
 SET species = 'unspecified';
 ROLLBACK;
+
+BEGIN;
+UPDATE "public"."animals"
+SET species = 'digimon'
+WHERE name LIKE '%mon'; 
+UPDATE "public"."animals"
+SET species = 'pokemon'
+WHERE species is NULL; 
+COMMIT;
