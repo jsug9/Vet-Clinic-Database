@@ -10,3 +10,6 @@ CREATE TABLE animals (
 );
 
 CREATE UNIQUE INDEX animals_pkey ON animals(id int4_ops);
+
+ALTER TABLE animals
+    ADD COLUMN species TEXT;
