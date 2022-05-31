@@ -34,3 +34,5 @@ COMMIT;
 BEGIN;
 DELETE FROM animals WHERE date_of_birth > '2022-01-01';
 SAVEPOINT delete_by_date;
+UPDATE animals
+SET weight_kg = weight_kg * -1
