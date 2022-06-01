@@ -142,6 +142,11 @@ SELECT animals.name FROM visits
   LIMIT 1;
 
 -- Details for most recent visit: animal information, vet information, and date of visit.
+SELECT * FROM visits
+	JOIN animals ON animals.id = visits.animals_id
+	JOIN vets ON vets.id = visits.vets_id
+	ORDER BY date_of_visit
+	LIMIT 1;
 
 -- How many visits were with a vet that did not specialize in that animal's species?
 
