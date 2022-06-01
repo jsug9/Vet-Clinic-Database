@@ -1,5 +1,6 @@
 /* Database schema to keep the structure of entire database. */
 
+-- ANIMALS
 CREATE TABLE animals (
     id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name text,
@@ -13,3 +14,12 @@ CREATE UNIQUE INDEX animals_pkey ON animals(id int4_ops);
 
 ALTER TABLE animals
     ADD COLUMN species TEXT;
+
+-- OWNERS
+CREATE TABLE owners (
+    id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    full_name text,
+    age integer
+);
+
+CREATE UNIQUE INDEX owners_pkey ON owners(id int4_ops);
