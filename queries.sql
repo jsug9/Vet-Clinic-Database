@@ -116,6 +116,9 @@ SELECT COUNT(*) as num_animals_visited from vets
 	WHERE vets.name = 'Stephanie Mendez';
 
 -- List all vets and their specialties, including vets with no specialties.
+SELECT vets.name, species.name as specialized_in FROM vets
+	LEFT JOIN specializations ON specializations.vets_id = vets.id
+	LEFT JOIN species ON specializations.species_id = species.id;
 
 -- List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
 
