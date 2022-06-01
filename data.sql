@@ -52,8 +52,7 @@ INSERT INTO public.vets ("name",age,date_of_graduation) VALUES
 
 -- Add specializations
 INSERT INTO public.specializations (vets_id,species_id) VALUES
-	 (1,1),
-	 (3,1),
-	 (3,2),
-	 (4,2);
-   
+	((SELECT id from vets where name = 'William Tatcher'), (SELECT id from species where name = 'Pokemon')),
+  ((SELECT id from vets where name = 'Stephanie Mendez'), (SELECT id from species where name = 'Digimon')),
+  ((SELECT id from vets where name = 'Stephanie Mendez'), (SELECT id from species where name = 'Pokemon')),
+  ((SELECT id from vets where name = 'Jack Harkness'), (SELECT id from species where name = 'Digimon')),
