@@ -17,14 +17,26 @@ VALUES
   (E'Blossom',E'1998-10-13',3,TRUE,17),
   (E'Ditto',E'2022-05-14',4,TRUE,22);
 
+-- Add owners to the database.
 INSERT INTO public.owners (full_name,age) VALUES
 	 ('Sam Smith',34),
-	 ('Jennifer Orwell ',19),
+	 ('Jennifer Orwell',19),
 	 ('Bob',45),
 	 ('Melody Pond',77),
 	 ('Dean Winchester',14),
 	 ('Jodie Whittaker',38);
 
+-- Add species to the database.
 INSERT INTO public.species (name) VALUES
 	 ('Pokemon'),
 	 ('Digimon');
+
+-- Modify your inserted animals so it includes the species_id value
+UPDATE animals SET species_id= '2' WHERE name LIKE '%mon';
+UPDATE animals SET species_id= '1' WHERE species_id IS NULL;
+
+UPDATE animals SET owner_id = owners.id FROM owners WHERE name = 'Agumon' AND owners.full_name= 'Sam Smith' ;
+UPDATE animals SET owner_id = owners.id FROM owners WHERE name IN ('Gabumon','Pikachu') AND owners.full_name= 'Jennifer Orwell';
+UPDATE animals SET owner_id = owners.id FROM owners WHERE name IN ('Devimon','Plantmon') AND owners.full_name= 'Bob';
+UPDATE animals SET owner_id = owners.id FROM owners WHERE name IN ('Charmander','Squirtle', 'Blossom') AND owners.full_name= 'Melody Pond';
+UPDATE animals SET owner_id = owners.id FROM owners WHERE name IN ('Angemon','Boarmon') AND owners.full_name= 'Dean Winchester';
