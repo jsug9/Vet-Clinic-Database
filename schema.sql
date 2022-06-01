@@ -23,3 +23,11 @@ CREATE TABLE owners (
 );
 
 CREATE UNIQUE INDEX owners_pkey ON owners(id int4_ops);
+
+-- SPECIES
+CREATE TABLE species (
+    id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name text
+);
+
+CREATE UNIQUE INDEX species_pkey ON species(id int4_ops);
