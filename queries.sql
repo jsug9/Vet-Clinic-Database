@@ -70,6 +70,7 @@ FROM animals
 GROUP BY neutered
 ORDER BY sum DESC
 LIMIT 1;
+
 -- Note: This query returns only the row with the highest sum.
 
 -- What is the minimum and maximum weight of each type of animal?
@@ -99,3 +100,28 @@ SELECT name FROM animals WHERE owner_id = (SELECT id FROM owners WHERE full_name
 
 -- Who owns the most animals?
 SELECT full_name, COUNT(*) FROM owners LEFT JOIN animals ON owners.id = animals.owner_id GROUP BY full_name ORDER BY COUNT(*) DESC LIMIT 1;
+
+-- QUERIES USING JOIN TABLES
+-- Who was the last animal seen by William Tatcher?
+SELECT animals.name FROM vets 
+JOIN visits ON vets.id = visits.vets_id
+JOIN animals ON animals.id = visits.animals_id
+WHERE vets.name = 'William Tatcher'
+ORDER BY visits.date_of_visit DESC
+LIMIT 1;
+
+-- How many different animals did Stephanie Mendez see?
+
+-- List all vets and their specialties, including vets with no specialties.
+
+-- List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
+
+-- What animal has the most visits to vets?
+
+-- Who was Maisy Smith's first visit?
+
+-- Details for most recent visit: animal information, vet information, and date of visit.
+
+-- How many visits were with a vet that did not specialize in that animal's species?
+
+-- What specialty should Maisy Smith consider getting? Look for the species she gets the most.
