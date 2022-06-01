@@ -127,6 +127,11 @@ SELECT animals.name as animal_name, visits.date_of_visit FROM animals
   WHERE vets.name = 'Stephanie Mendez' AND visits.date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
 
 -- What animal has the most visits to vets?
+SELECT animals.name, COUNT(*) as count FROM animals
+  JOIN visits ON visits.animals_id = animals.id
+  GROUP BY animals.name
+  ORDER BY count DESC
+  LIMIT 1;
 
 -- Who was Maisy Smith's first visit?
 
