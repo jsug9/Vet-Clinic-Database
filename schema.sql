@@ -45,3 +45,14 @@ ALTER TABLE animals
 ALTER TABLE animals
     ADD owner_id INT,
     ADD CONSTRAINT owner_id FOREIGN KEY(owner_id) REFERENCES owners(id);
+
+-- VETS
+CREATE TABLE vets (
+    id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name text,
+    age integer,
+    date_of_graduation date
+);
+
+CREATE UNIQUE INDEX vets_pkey ON vets(id int4_ops);
+

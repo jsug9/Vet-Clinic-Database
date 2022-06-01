@@ -32,9 +32,11 @@ INSERT INTO public.species (name) VALUES
 	 ('Digimon');
 
 -- Modify your inserted animals so it includes the species_id value
+-- Species
 UPDATE animals SET species_id= '2' WHERE name LIKE '%mon';
 UPDATE animals SET species_id= '1' WHERE species_id IS NULL;
 
+-- Owners
 UPDATE animals SET owner_id = owners.id FROM owners WHERE name = 'Agumon' AND owners.full_name= 'Sam Smith' ;
 UPDATE animals SET owner_id = owners.id FROM owners WHERE name IN ('Gabumon','Pikachu') AND owners.full_name= 'Jennifer Orwell';
 UPDATE animals SET owner_id = owners.id FROM owners WHERE name IN ('Devimon','Plantmon') AND owners.full_name= 'Bob';
