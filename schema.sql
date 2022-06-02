@@ -45,3 +45,32 @@ ALTER TABLE animals
 ALTER TABLE animals
     ADD owner_id INT,
     ADD CONSTRAINT owner_id FOREIGN KEY(owner_id) REFERENCES owners(id);
+
+-- VETS
+CREATE TABLE vets (
+    id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name text,
+    age integer,
+    date_of_graduation date
+);
+
+CREATE UNIQUE INDEX vets_pkey ON vets(id int4_ops);
+
+-- Join table specializations
+CREATE TABLE specializations (
+    vets_id integer REFERENCES vets(id) ON DELETE CASCADE,
+    species_id integer REFERENCES species(id) ON DELETE CASCADE,
+    CONSTRAINT specializations_pkey PRIMARY KEY (vets_id, species_id)
+);
+
+CREATE UNIQUE INDEX specializations_pkey ON specializations(vets_id int4_ops,species_id int4_ops);
+
+-- Join table vists
+CREATE TABLE visits (
+    vets_id integer REFERENCES vets(id) ON DELETE CASCADE,
+    animals_id integer REFERENCES animals(id) ON DELETE CASCADE,
+    date_of_visit date,
+    CONSTRAINT visits_pkey PRIMARY KEY (vets_id, animals_id, date_of_visit)
+);
+
+CREATE UNIQUE INDEX visits_pkey ON visits(vets_id int4_ops,animals_id int4_ops,date_of_visit date_ops);
