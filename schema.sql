@@ -74,3 +74,6 @@ CREATE TABLE visits (
 );
 
 CREATE UNIQUE INDEX visits_pkey ON visits(vets_id int4_ops,animals_id int4_ops,date_of_visit date_ops);
+
+-- Add mail column to owners
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
