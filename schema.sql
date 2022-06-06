@@ -67,13 +67,12 @@ CREATE UNIQUE INDEX specializations_pkey ON specializations(vets_id int4_ops,spe
 
 -- Join table vists
 CREATE TABLE visits (
-    vets_id integer REFERENCES vets(id) ON DELETE CASCADE,
-    animals_id integer REFERENCES animals(id) ON DELETE CASCADE,
+    animals_id int,
+    vets_id int,
     date_of_visit date,
-    CONSTRAINT visits_pkey PRIMARY KEY (vets_id, animals_id, date_of_visit)
+    CONSTRAINT fk_vets FOREIGN KEY(vets_id) REFERENCES vets(id),
+    CONSTRAINT fk_animals FOREIGN KEY(animals_id) REFERENCES animals(id)
 );
-
-CREATE UNIQUE INDEX visits_pkey ON visits(vets_id int4_ops,animals_id int4_ops,date_of_visit date_ops);
 
 -- Add mail column to owners
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
