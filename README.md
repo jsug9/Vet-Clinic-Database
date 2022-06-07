@@ -2,6 +2,8 @@
 
 > This is my first SQL project for a vet clinic.
 
+## Diagram
+
 
 ## Getting Started
 
