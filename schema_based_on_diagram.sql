@@ -24,6 +24,15 @@ id_index" ON invoices("medical_history_
 id" int4_ops);
 
 -- Add medical histories table
+CREATE TABLE medical_histories (
+    id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    admitted_at timestamp without time zone,
+    patient_id integer REFERENCES patients(id),
+    status character varying
+);
+
+CREATE UNIQUE INDEX medical_histories_pkey ON medical_histories(id int4_ops);
+CREATE INDEX patient_id_index ON medical_histories(patient_id int4_ops);
 
 
 -- Add invoice items table
