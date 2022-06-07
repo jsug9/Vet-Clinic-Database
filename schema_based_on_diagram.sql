@@ -50,4 +50,10 @@ CREATE INDEX invoice_id_index ON invoice_items(invoice_id int4_ops);
 CREATE INDEX treatment_id ON invoice_items(treatment_id int4_ops);
 
 -- Add treatments table
+CREATE TABLE treatments (
+    id integer GENERATED ALWAYS AS IDENTITY REFERENCES medical_histories(id),
+    type character varying,
+    name character varying
+);
 
+CREATE UNIQUE INDEX treatments_id_idx ON treatments(id int4_ops);
