@@ -1,5 +1,4 @@
 -- Add patients table
-
 CREATE TABLE patients (
     id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name text,
