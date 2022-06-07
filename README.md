@@ -31,7 +31,12 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Thanks to my peers who are always there to offer support. 
+👤 **Tafara Mafemba**
+
+- GitHub: [@tafaramafemba](https://github.com/tafaramafemba)
+- LinkedIn: [Tafara Mafemba](https://www.linkedin.com/in/tafara-mafemba)
+
+- Also, thanks to my peers who are always there to offer support.
 
 ## 📝 License
 
