@@ -36,7 +36,18 @@ CREATE INDEX patient_id_index ON medical_histories(patient_id int4_ops);
 
 
 -- Add invoice items table
+CREATE TABLE invoice_items (
+    id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    unit_price numeric,
+    quantity integer,
+    total_price numeric,
+    invoice_id integer REFERENCES invoices(id),
+    treatment_id integer REFERENCES treatments(id)
+);
 
+CREATE UNIQUE INDEX invoice_items_pkey ON invoice_items(id int4_ops);
+CREATE INDEX invoice_id_index ON invoice_items(invoice_id int4_ops);
+CREATE INDEX treatment_id ON invoice_items(treatment_id int4_ops);
 
 -- Add treatments table
 
